@@ -3,6 +3,7 @@
 #include <boost/unordered_map.hpp>
 #include <benchmark/benchmark.h>
 #include <cstdlib>
+#include <string>
 
 // https://gist.github.com/camolezi/a5a39539a8c7252d74ec8e6f17f6aa37
 
@@ -15,7 +16,7 @@ static void boost_unordered(benchmark::State& state){
     boost::unordered_map<keyType, std::string> boost_map;
 
     for(uint32_t key = 0; key < numberOfElementes; key++){
-        auto result = boost_map.emplace(key, "testing std maps" + key);
+        auto result = boost_map.emplace(key, "testing std maps" + std::to_string(key));
         benchmark::DoNotOptimize(result);
     }
 

@@ -6,3 +6,5 @@ find_package(benchmark REQUIRED)
 
 add_executable(bench benchmark.cc)
 target_link_libraries(bench Boost::headers benchmark::benchmark_main)
+
+install(TARGETS bench RUNTIME)
